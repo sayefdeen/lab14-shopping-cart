@@ -45,10 +45,26 @@ function addSelectedItemToCart(product, quantity) {
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  var jsonParse = JSON.parse(localStorage["items"]);
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
+  var cartContent = document.getElementById("cartContents");
+  cartContent.innerHTML = "";
+  var table = document.createElement("table");
+  for (var i = 0; i < cart.items.length; i++) {
+    var row = document.createElement("tr");
+    var td = document.createElement("td");
+    td.textContent = cart.items[i].product;
+    row.appendChild(td);
+    td = document.createElement("td");
+    td.textContent = cart.items[i].quantity;
+    row.appendChild(td);
+    table.appendChild(row);
+  }
+  cartContent.appendChild(table);
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }

@@ -7,8 +7,9 @@ table.addEventListener('click', removeItemFromCart);
 var cart;
 
 function loadCart() {
-  var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  var cartItems = JSON.parse(localStorage.getItem('items')) || [];
   cart = new Cart(cartItems);
+  console.log(cart.items.length);
 }
 
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
@@ -23,7 +24,23 @@ function clearCart() {}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-
+  var tableContent=document.querySelector('tbody');
+for (let index = 0; index < cart.items.length; index++) {
+    var row=document.createElement('tr');
+    var td=document.createElement('td');
+    var button=document.createElement('button');
+    button.setAttribute('class','delBtn');
+    button.innerText='delete';
+    td.appendChild(button);
+    row.appendChild(td);
+    td=document.createElement('td');
+    td.textContent=cart.items[index].product;
+    row.appendChild(td)
+    td=document.createElement('td');
+    td.textContent=cart.items[index].quantity;
+    row.appendChild(td);
+    tableContent.appendChild(row);
+}
   // TODO: Find the table body
 
   // TODO: Iterate over the items in the cart
@@ -34,6 +51,8 @@ function showCart() {
 }
 
 function removeItemFromCart(event) {
+var delBtn=document.querySelector("button[class='delBtn']")
+console.log(delBtn);
 
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   // TODO: Save the cart back to local storage

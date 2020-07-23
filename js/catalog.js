@@ -56,9 +56,17 @@ function updateCartPreview() {
   var cartContent = document.getElementById("cartContents");
   cartContent.innerHTML = "";
   var table = document.createElement("table");
+  var row = document.createElement("tr");
+  var td = document.createElement("td");
+  td.textContent = "Product Name";
+  row.appendChild(td);
+  td = document.createElement("td");
+  td.textContent = "Product Quntity";
+  row.appendChild(td);
+  table.appendChild(row);
   for (var i = 0; i < cart.items.length; i++) {
-    var row = document.createElement("tr");
-    var td = document.createElement("td");
+    row = document.createElement("tr");
+    td = document.createElement("td");
     td.textContent = cart.items[i].product;
     row.appendChild(td);
     td = document.createElement("td");

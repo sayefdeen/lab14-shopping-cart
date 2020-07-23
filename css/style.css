@@ -9,22 +9,23 @@ table th, table td{
   border-collapse: collapse;
   border: 1px solid red;
 } */
-body,html {
-  height:100%;
-  width:100%;
+body,
+html {
+  height: 100%;
+  width: 100%;
 }
 
 body {
-  background:#f5f5f5;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background: #f5f5f5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Specifically Targeting the Main Header (not to be confused with headers within cards) */
 body > header {
-  background:#eee;
-  border-bottom:1px solid #ddd;
-  overflow:hidden;
-  padding: .5em 5em;
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  padding: 0.5em 5em;
 }
 
 body > header:after {
@@ -38,151 +39,182 @@ body > header:after {
 }
 
 body > header nav {
-  float:right;
-  line-height:2.5em;
+  float: right;
+  line-height: 2.5em;
 }
 
 body > header nav li {
-  display:inline-block;
+  display: inline-block;
+  margin: 0 15px;
 }
 
 body > header nav li a {
   color: #333;
-  text-decoration:none;
+  text-decoration: none;
+}
+
+#itemCount {
+  padding: 0px;
+  margin: 0 5px;
+  border: 0px solid black;
+  background-color: black;
+  color: yellow;
+  border-radius: 10px;
 }
 
 body > header h1 {
-  float:left;
-  font-size:2.5em;
-  font-weight:bold;
+  float: left;
+  font-size: 2.5em;
+  font-weight: bold;
 }
 
 /* Main Content */
 /* Note the height calculation -- that's to keep the footer at the bottom */
 main {
-  margin:1.5em;
+  margin: 1.5em;
   min-height: calc(100% - 9em);
 }
 
 /* Footer Styling and sticking to the bottom */
 
 footer {
-  display:block;
-  height:1.5em;
+  display: block;
+  height: 1.5em;
 }
 
 footer {
-  background:#444;
+  background: #444;
   color: #eee;
-  padding: .5em 5em;
-  text-align:center;
+  padding: 0.5em 5em;
+  text-align: center;
 }
-
 
 /* Generic Deck and Card Styles */
 .deck {
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .card {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.deck.col-2 .card { 
-  float:left;
+.deck.col-2 .card {
+  float: left;
   width: 50%;
 }
 
-
 /* Card styles specific to this application */
 .card header {
-  background: #666;
-  color: #eee;
-  padding: .5em;
-  text-align:center;
-  text-shadow:none;
-  width: 100%;
+  padding: 0.5em;
+  text-align: center;
+  text-shadow: none;
+  display: inline;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .card .copy {
-  padding:1.5em;
+  padding: 1.5em;
+  margin: 15px;
 }
 
+.copy li {
+  line-height: 1.5;
+  font-size: 20px;
+  text-transform: capitalize;
+}
 
 /* Styles for the order form and summary on the main page */
 legend {
-  display:none;
+  display: none;
 }
 
 form {
-  margin:auto;
-  width:50%;
+  margin: auto;
+  width: 50%;
 }
 
-input[type=number], select {
-  height:1.75em;
-  padding:.25em;
+input[type="number"],
+select {
+  height: 1.75em;
+  padding: 0.25em;
   width: 100%;
 }
 
-input[type=submit] {
- float:right; 
+input[type="submit"] {
+  float: right;
 }
 
 label {
-  display:block;
-  margin-bottom:1em;
+  display: block;
+  margin-bottom: 1em;
 }
 
 label span {
-  display:block;
-  padding-bottom:.25em;
+  display: block;
+  padding-bottom: 0.25em;
 }
 
 .card#cartContents:empty {
-  display:none;
+  display: none;
 }
 
 .card#cartContents {
-  background:#fff;
-  padding:1.5em;
+  background: #fff;
+  padding: 1.5em;
   border: 1px solid #777;
 }
 
-
 /* Styles for the table on the cart page */
+
 #cart {
-  border-collapse:collapse;
-  margin:auto;
-  width:65%;
+  border-collapse: collapse;
+  margin: auto;
+  width: 65%;
 }
 
 #cart thead tr th {
   color: #777;
   border-bottom: 3px solid #777;
-  font-weight:bold;
-  padding:.5em 1em;
+  font-weight: bold;
+  padding: 0.5em 1em;
 }
-
 
 #cart tr td {
   border-bottom: 1px solid #ccc;
-  border-collapse:none;
+  border-collapse: none;
   color: #777;
-  padding:.5em 1em;
-  text-align:center;
-  width:auto;
+  padding: 0.5em 1em;
+  text-align: center;
+  width: auto;
 }
 
 #cart tr td:last-child,
 #cart tr th:last-child {
-  text-align:left;
-  width:100%;
+  text-align: left;
+  width: 100%;
 }
 
 #cart tr td:first-child {
-  color:red;
-  cursor:pointer;
+  color: red;
+  cursor: pointer;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: center;
 }

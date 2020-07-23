@@ -3,6 +3,7 @@
 
 // Create an event listener so that when the delete link is clicked, the removeItemFromCart method is invoked.
 var table = document.getElementById("cart");
+
 table.addEventListener("click", removeItemFromCart);
 var cart;
 var tableContent = document.querySelector("tbody");
@@ -17,6 +18,7 @@ function renderCart() {
   loadCart();
   clearCart();
   showCart();
+  renderForm();
 }
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
@@ -69,3 +71,50 @@ function removeItemFromCart() {
 
 // This will initialize the page and draw the cart on screen
 renderCart();
+
+function renderForm() {
+  var divSelect = document.querySelectorAll("div[class='card']")[1];
+  console.log(divSelect);
+  var newInputArr = [
+    "Name",
+    "Street",
+    "city",
+    "state",
+    "ZIP code",
+    "Phone Number",
+  ];
+  var newForm = document.createElement("form");
+  newForm.setAttribute("id", "newForm");
+  for (var i = 0; i < newInputArr.length; i++) {
+    var label = document.createElement("label");
+    label.textContent = newInputArr[i];
+    var input = document.createElement("input");
+    if (i == newInputArr.length - 1) {
+      input.setAttribute("type", "number");
+    } else {
+      input.setAttribute("type", "text");
+    }
+    input.setAttribute("placeholder", newInputArr[i]);
+    input.required = true;
+    newForm.appendChild(label);
+    newForm.appendChild(input);
+  }
+  input = document.createElement("input");
+  input.setAttribute("type", "submit");
+  input.setAttribute("value", "Process Order");
+  newForm.appendChild(input);
+  divSelect.appendChild(newForm);
+}
+
+var form = document.querySelector("#newForm");
+console.log(form);
+form.addEventListener("submit", approve);
+
+function approve() {
+  event.preventDefault();
+  var selectForm = document.getElementById("newForm");
+  for (var i = 0; i < selectForm.length - 1; i++) {
+    console.log(selectForm[i].value);
+    selectForm[i].value = "";
+  }
+}

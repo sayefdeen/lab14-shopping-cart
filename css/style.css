@@ -98,6 +98,7 @@ footer {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .deck.col-2 .card {
@@ -174,7 +175,8 @@ label span {
 #cart {
   border-collapse: collapse;
   margin: auto;
-  width: 65%;
+  width: 30%;
+  float: left;
 }
 
 #cart thead tr th {
@@ -217,4 +219,18 @@ td {
   padding: 15px;
   margin: 0 auto;
   text-align: center;
+}
+
+/* Applying style to form in cart.html */
+#newForm {
+  width: 20%;
+  float: right;
+  margin: 0 5% 0 0;
+}
+
+#newForm input,
+label {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
 }

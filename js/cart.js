@@ -44,7 +44,7 @@ function showCart() {
     td.textContent = cart.items[index].product;
     row.appendChild(td);
     td = document.createElement("td");
-    td.innerHTML = `<img src="../${cart.items[index].image}"/>`;
+    td.innerHTML = `<img src="${cart.items[index].image}"/>`;
     row.appendChild(td);
     tableContent.appendChild(row);
   }

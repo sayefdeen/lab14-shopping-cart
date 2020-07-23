@@ -28,9 +28,14 @@ function handleSubmit() {
   var valueOfQuntity = inputNumber.value;
   var selectedTag = document.querySelector("select");
   var valueOfProduct = selectedTag.options[selectedTag.selectedIndex].value;
-
+  for (var i = 0; i < Product.allProducts.length; i++) {
+    if (valueOfProduct == Product.allProducts[i].name) {
+      var filePath = Product.allProducts[i].filePath;
+      break;
+    }
+  }
   // Do all the things ...
-  addSelectedItemToCart(valueOfProduct, valueOfQuntity);
+  addSelectedItemToCart(valueOfProduct, valueOfQuntity, filePath);
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
@@ -38,11 +43,11 @@ function handleSubmit() {
 }
 
 // TODO: Add the selected item and quantity to the cart
-function addSelectedItemToCart(product, quantity) {
+function addSelectedItemToCart(product, quantity, image) {
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
-  cart.addItem(product, quantity);
+  cart.addItem(product, quantity, image);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart

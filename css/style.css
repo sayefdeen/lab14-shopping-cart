@@ -260,3 +260,15 @@ label {
   text-transform: capitalize;
   color: black;
 }
+
+td img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}

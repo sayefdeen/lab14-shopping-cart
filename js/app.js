@@ -5,11 +5,12 @@
 var Cart = function (items) {
   // this.items is an array of CartItem instances.
   this.items = items;
+  console.log(this.items);
 };
 
-Cart.prototype.addItem = function (product, quantity) {
+Cart.prototype.addItem = function (product, quantity, image) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
-  var cartItem = new CartItem(product, quantity);
+  var cartItem = new CartItem(product, quantity, image);
   this.items.push(cartItem);
   console.log(this.items);
 };
@@ -24,13 +25,13 @@ Cart.prototype.removeItem = function (item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
   this.items.splice(item, 1);
-  console.log(this.items);
   this.saveToLocalStorage();
 };
 
-var CartItem = function (product, quantity) {
+var CartItem = function (product, quantity, image) {
   this.product = product;
   this.quantity = quantity;
+  this.image = image;
 };
 
 // Product contructor.

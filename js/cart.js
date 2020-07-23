@@ -7,6 +7,8 @@ var table = document.getElementById("cart");
 table.addEventListener("click", removeItemFromCart);
 var cart;
 var tableContent = document.querySelector("tbody");
+var theadRow = document.querySelector("thead tr");
+var picture = (theadRow.insertCell(-1).outerHTML = `<th>Picture</th>`);
 
 function loadCart() {
   var cartItems = JSON.parse(localStorage.getItem("items")) || [];
@@ -40,6 +42,9 @@ function showCart() {
     row.appendChild(td);
     td = document.createElement("td");
     td.textContent = cart.items[index].product;
+    row.appendChild(td);
+    td = document.createElement("td");
+    td.innerHTML = `<img src="../${cart.items[index].image}"/>`;
     row.appendChild(td);
     tableContent.appendChild(row);
   }

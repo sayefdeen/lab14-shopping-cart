@@ -18,7 +18,6 @@ function renderCart() {
   loadCart();
   clearCart();
   showCart();
-  renderForm();
 }
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
@@ -58,8 +57,8 @@ function removeItemFromCart() {
     var productClassName = targetClicked.classList[0];
     var productIndex = productClassName.split("@")[1];
     cart.removeItem(productIndex);
-    renderCart();
   }
+  renderCart();
 }
 // clickHandler();
 
@@ -71,10 +70,13 @@ function removeItemFromCart() {
 
 // This will initialize the page and draw the cart on screen
 renderCart();
+renderForm();
 
 function renderForm() {
+  var comfirmPara = document.createElement("p");
+  comfirmPara.setAttribute("id", "comfirm");
   var divSelect = document.querySelectorAll("div[class='card']")[1];
-  console.log(divSelect);
+
   var newInputArr = [
     "Name",
     "Street",
@@ -85,6 +87,7 @@ function renderForm() {
   ];
   var newForm = document.createElement("form");
   newForm.setAttribute("id", "newForm");
+  newForm.appendChild(comfirmPara);
   for (var i = 0; i < newInputArr.length; i++) {
     var label = document.createElement("label");
     label.textContent = newInputArr[i];
@@ -107,14 +110,14 @@ function renderForm() {
 }
 
 var form = document.querySelector("#newForm");
-console.log(form);
 form.addEventListener("submit", approve);
 
 function approve() {
   event.preventDefault();
   var selectForm = document.getElementById("newForm");
   for (var i = 0; i < selectForm.length - 1; i++) {
-    console.log(selectForm[i].value);
     selectForm[i].value = "";
   }
+  var message = document.querySelector("#comfirm");
+  message.textContent = "your order has been submitted";
 }

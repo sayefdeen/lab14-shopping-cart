@@ -28,6 +28,7 @@ function handleSubmit() {
   var valueOfQuntity = inputNumber.value;
   var selectedTag = document.querySelector("select");
   var valueOfProduct = selectedTag.options[selectedTag.selectedIndex].value;
+
   // Do all the things ...
   addSelectedItemToCart(valueOfProduct, valueOfQuntity);
   cart.saveToLocalStorage();
@@ -55,8 +56,15 @@ function updateCounter() {
 function updateCartPreview() {
   var cartContent = document.getElementById("cartContents");
   cartContent.innerHTML = "";
+  var comfirmPara = document.createElement("p");
+  comfirmPara.setAttribute("id", "comfirm");
+  comfirmPara.textContent = "your order has been added";
+  cartContent.innerHTML = "";
   var table = document.createElement("table");
   var row = document.createElement("tr");
+  row.appendChild(comfirmPara);
+  table.appendChild(row);
+  row = document.createElement("tr");
   var td = document.createElement("td");
   td.textContent = "Product Name";
   row.appendChild(td);
